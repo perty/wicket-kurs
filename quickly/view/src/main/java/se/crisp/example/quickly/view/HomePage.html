@@ -8,36 +8,52 @@
     <div class="row">
         <div class="col-md9">
             <h1>Welcome to the home page!</h1>
-            <p>You are running Wicket version: <span wicket:id="version"></span> </p>
+
+            <p>You are running Wicket version: <span wicket:id="version"></span></p>
         </div>
     </div>
     <div class="row text-left">
         <h1>Here you start your journey</h1>
+
         <p>
             This is a starting plate for your Wicket with Spring repository project.
-            Also included is Twitter Bootstrap, the CSS framework.
-            There are two maven modules, core and view, which have a common parent: quickly.
+            Also included is Twitter Bootstrap, the CSS framework and Lombok which gives
+            us auto-generated getters, setters, equals, hashcode and toString.
         </p>
+
+        <p>
+            There are two maven modules, Core and View, which have a common parent: Quickly.
+        </p>
+
         <p>
             <b>Core</b> is the backend which is configured by the CoreConfiguration class.
             There you will find that if there is no database in the JNDI, a fall back to an
             <strong>in-memory database</strong> will happen.
         </p>
+
         <p>
             The <b>View</b> module is for your practicing of Wicket.
             Here is a BasePage and a HomePage, the latter inherits from the former.
             You are currently reading HomePage. The HomePage logic is found in the class with the same name.
         </p>
+
         <h2>Start this as a web application</h2>
+
         <p>
             To start this you could either build and install to your own Tomcat with a proper MySQL database or
-            run everything in a Jetty container with an in-memory database. With IntelliJ, browse the Maven
+            run everything in a Jetty container with an in-memory database.
+        </p>
+        <h3>Running in IntelliJ</h3>
+        <p>
+            With IntelliJ, browse the Maven
             structure, go to the view module, go to Plugins, go to jetty and right-click on jetty:run.
             Select "Debug view [[jetty:run]]". The web application should start at localhost:8080.
             Selecting debug instead of run gives you hot deploy on build (Ctrl-F9) and fewer restarts
             of the container.
         </p>
+
         <h2>Exercise 1</h2>
+
         <p>
             Add a link from this page to another, new page. You must edit this HTML file and add an
             anchor somewhere. Below is a hint for your Java code. Another hint, this page shows the
@@ -52,6 +68,7 @@
             });
         </pre>
         <h2>Exercise 2</h2>
+
         <p>
             Write a test that verifies the clicking on the link takes us to the correct page. There is some code
             in the HomePageTest that is guarded by comments. Make it work!
