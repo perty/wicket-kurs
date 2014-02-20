@@ -24,12 +24,14 @@ public class Person implements Serializable {
     private String zip = "";
     private String city = "";
 
-    public static IFirstName builder() {
-        return new Builder();
-    }
-
     public static Person nullObject() {
         return nullObject;
+    }
+
+    // Follows a type safe builder with flow style. Hard to read but a breeze to use.
+    // Person.builder().firstName("Per").....build();
+    public static IFirstName builder() {
+        return new Builder();
     }
 
     public static class Builder implements IBuild, IFirstName, ILastName, IAddress, IZip, ICity {
