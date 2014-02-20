@@ -12,9 +12,6 @@ import org.springframework.context.ApplicationContext;
 
 import java.lang.reflect.Field;
 
-/**
- * @author Andreas Svanberg <andreass@dsv.su.se>
- */
 @RunWith(MockitoJUnitRunner.class)
 public abstract class WicketTest {
 

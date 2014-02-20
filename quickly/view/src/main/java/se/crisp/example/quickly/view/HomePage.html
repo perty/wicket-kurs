@@ -1,65 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:wicket="http://wicket.apache.org">
-	<head>
-		<meta charset="utf-8" />
-		<title>Apache Wicket Quickstart</title>
-		<link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold' rel='stylesheet' type='text/css' />
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" title="Stylesheet" />
-	</head>
-	<body>
-		<div id="hd">
-			<div id="logo">
-				<img src="logo.png" width="50px" height="50px" alt="Wicket Logo" />
-				<h1>Apache Wicket</h1>
-			</div>
-		</div>
-		<div id="bd">
-			<h2>Congratulations!</h2>
-			<p>
-				Your quick start works! This project is especially useful to
-                start developing your Wicket application or to create a test
-                case for a bug report.
-			</p>
-            <p>
-                <a wicket:id="nextPage">Go to the next page.</a>
-            </p>
-			<h3>Get started</h3>
-			<p>
-				You can even <a href="https://localhost:8443">switch to HTTPS</a>!
-			</p> 
-			<p>
-				From here you can start hacking away at your application and
-                wow your clients:
-			</p>
-			<ul>
-				<li>work through <a href="http://wicket.apache.org/learn/examples" target="_blank" title="Hello world and friends">some examples</a></li>
-				<li>read <a href="http://wicket.apache.org/learn/books" target="_blank" title="Books about Wicket in English, German and Japanese">some books</a></li>
-				<li>find <a href="http://wicket.apache.org/learn/projects" target="_blank" title="Additional projects, components and libraries">additional components, projects and libraries</a></li>
-			</ul>
-			<h3>Get help</h3>
-			<p>
-				We are here to help!
-			</p>
-			<ul>
-				<li><a href="http://wicket-users.markmail.org/" target="_blank" title="Search the mailing list archives">search</a> our mailing list archives</li>
-				<li>ask a question on the <a href="http://wicket.apache.org/help/email.html">users list</a></li>
-			</ul>
-			<h3>Reporting a bug</h3>
-			<p>
-				Help us help you:
-			</p>
-			<ol>
-				<li>reproduce the bug with the <strong>least</strong> amount of code</li>
-				<li>create a unit test that shows the bug</li>
-				<li>fix the bug and create a patch</li>
-				<li>attach the result of step 1, 2 or 3 to a <a href="https://issues.apache.org/jira/browse/WICKET" target="_blank">JIRA issue</a></li>
-				<li>profit!</li>
-			</ol>
-			<p>
-				Please mention the correct Wicket version: <wicket:container id="x" wicket:id="version">1.5-SNAPSHOT</wicket:container>.
-			</p>
-		</div>
-		<div id="ft">
-		</div>
-	</body>
+<head>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<wicket:extend>
+    <div class="row">
+        <div class="col-md9">
+            <h1>Welcome to the home page!</h1>
+            <p>You are running Wicket version: <span wicket:id="version"></span> </p>
+        </div>
+    </div>
+    <div class="row text-left">
+        <h1>Here you start your journey</h1>
+        <p>
+            This is a starting plate for your Wicket with Spring repository project.
+            Also included is Twitter Bootstrap, the CSS framework.
+            There are two maven modules, core and view, which have a common parent: quickly.
+        </p>
+        <p>
+            <b>Core</b> is the backend which is configured by the CoreConfiguration class.
+            There you will find that if there is no database in the JNDI, a fall back to an
+            <strong>in-memory database</strong> will happen.
+        </p>
+        <p>
+            The <b>View</b> module is for your practicing of Wicket.
+            Here is a BasePage and a HomePage, the latter inherits from the former.
+            You are currently reading HomePage. The HomePage logic is found in the class with the same name.
+        </p>
+        <h2>Start this as a web application</h2>
+        <p>
+            To start this you could either build and install to your own Tomcat with a proper MySQL database or
+            run everything in a Jetty container with an in-memory database. With IntelliJ, browse the Maven
+            structure, go to the view module, go to Plugins, go to jetty and right-click on jetty:run.
+            Select "Debug view [[jetty:run]]". The web application should start at localhost:8080.
+            Selecting debug instead of run gives you hot deploy on build (Ctrl-F9) and fewer restarts
+            of the container.
+        </p>
+        <h2>Exercise 1</h2>
+        <p>
+            Add a link from this page to another, new page. You must edit this HTML file and add an
+            anchor somewhere. Below is a hint for your Java code. Another hint, this page shows the
+            current version of Wicket, how is that done?
+        </p>
+        <pre>
+            add(new Link("nextPage") {
+                @Override
+                public void onClick() {
+                    setResponsePage(new MyNewPage());
+                }
+            });
+        </pre>
+        <h2>Exercise 2</h2>
+        <p>
+            Write a test that verifies the clicking on the link takes us to the correct page. There is some code
+            in the HomePageTest that is guarded by comments. Make it work!
+        </p>
+    </div>
+</wicket:extend>
+</body>
 </html>

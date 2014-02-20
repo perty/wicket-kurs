@@ -9,7 +9,20 @@ import org.apache.wicket.request.mapper.parameter.PageParameters;
 public class BasePage<T> extends GenericWebPage<T> {
 
     protected BasePage() {
-        super();
+        init();
+    }
+
+    protected BasePage(IModel<T> model) {
+        super(model);
+        init();
+    }
+
+    protected BasePage(PageParameters parameters) {
+        super(parameters);
+        init();
+    }
+
+    private void init() {
         add(new Link<HomePage>("homeLink") {
 
             @Override
@@ -17,13 +30,5 @@ public class BasePage<T> extends GenericWebPage<T> {
                 setResponsePage(Application.get().getHomePage());
             }
         });
-    }
-
-    protected BasePage(IModel<T> model) {
-        super(model);
-    }
-
-    protected BasePage(PageParameters parameters) {
-        super(parameters);
     }
 }
