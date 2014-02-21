@@ -8,8 +8,6 @@ import se.crisp.example.quickly.view.BasePage;
 
 public class TermsAndConditionsPage extends BasePage {
 
-    private Boolean hasRead = Boolean.FALSE;
-
     public TermsAndConditionsPage() {
         final Link link = new Link("continueLink") {
 
@@ -22,6 +20,7 @@ public class TermsAndConditionsPage extends BasePage {
         link.setOutputMarkupId(true);
         add(link);
 
+        Boolean hasRead = Boolean.FALSE;
         add(new AjaxCheckBox("haveRead", Model.of(hasRead)) {
 
             @Override
