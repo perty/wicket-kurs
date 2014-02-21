@@ -5,6 +5,7 @@ import org.apache.wicket.protocol.http.WebApplication;
 import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
 import se.crisp.example.quickly.view.person.PersonEditPage;
 import se.crisp.example.quickly.view.person.PersonListPage;
+import se.crisp.example.quickly.view.toc.TermsAndConditionsPage;
 
 
 public class WicketApplication extends WebApplication {
@@ -27,5 +28,6 @@ public class WicketApplication extends WebApplication {
 
         mountPage("newPerson", PersonEditPage.class);
         mountPage("listPersons", PersonListPage.class);
+        mountPage("toc", TermsAndConditionsPage.class);
     }
 }
