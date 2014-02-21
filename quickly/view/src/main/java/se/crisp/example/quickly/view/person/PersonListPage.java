@@ -4,9 +4,9 @@ package se.crisp.example.quickly.view.person;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.ListView;
+import org.apache.wicket.model.CompoundPropertyModel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.LoadableDetachableModel;
-import org.apache.wicket.model.PropertyModel;
 import se.crisp.example.quickly.core.Person;
 import se.crisp.example.quickly.core.PersonService;
 import se.crisp.example.quickly.view.BasePage;
@@ -20,18 +20,20 @@ public class PersonListPage extends BasePage<List<Person>> {
     private PersonService personService;
 
     public PersonListPage() {
-        add(new ListView<Person>("row", getTheModelOfAllPersons()) {
+        add(new ListView<Person>("row", modelForList()) {
             @Override
             protected void populateItem(ListItem<Person> item) {
-                item.add(new Label("firstName", new PropertyModel<String>(item.getModel(), "firstName")));
+                item.setModel(new CompoundPropertyModel<>(item.getModel()));
+                item.add(new Label("firstName"));
+                item.add(new Label("lastName"));
             }
         });
     }
 
-    private IModel<? extends List<? extends Person>> getTheModelOfAllPersons() {
-        return new LoadableDetachableModel<List<? extends Person>>() {
+    private IModel<List<Person>> modelForList() {
+        return new LoadableDetachableModel<List<Person>>() {
             @Override
-            protected List<? extends Person> load() {
+            protected List<Person> load() {
                 return personService.findAll();
             }
         };

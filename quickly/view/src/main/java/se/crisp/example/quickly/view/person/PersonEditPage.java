@@ -19,6 +19,7 @@ public class PersonEditPage extends BasePage<Person> {
 
     private static final String FORM = "form";
     private static final String FIRST_NAME = "firstName";
+    public static final String LAST_NAME = "lastName";
 
     @Inject
     private PersonService personService;
@@ -36,6 +37,7 @@ public class PersonEditPage extends BasePage<Person> {
         public PersonEditForm(String id, IModel<Person> personModel) {
             super(id, personModel);
             add(new TextField<>(FIRST_NAME, new PropertyModel<String>(personModel, "firstName")));
+            add(new TextField<>(LAST_NAME, new PropertyModel<String>(personModel, "lastName")));
         }
 
         @Override
