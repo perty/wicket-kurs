@@ -2,6 +2,7 @@ package se.crisp.example.quickly.view.person;
 
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.TextField;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.PropertyModel;
@@ -18,8 +19,6 @@ public class PersonEditPage extends BasePage<Person> {
     private static final Logger LOG = LoggerFactory.getLogger(PersonEditForm.class);
 
     private static final String FORM = "form";
-    private static final String FIRST_NAME = "firstName";
-    public static final String LAST_NAME = "lastName";
 
     @Inject
     private PersonService personService;
@@ -36,8 +35,9 @@ public class PersonEditPage extends BasePage<Person> {
     private class PersonEditForm extends Form<Person> {
         public PersonEditForm(String id, IModel<Person> personModel) {
             super(id, personModel);
-            add(new TextField<>(FIRST_NAME, new PropertyModel<String>(personModel, "firstName")));
-            add(new TextField<>(LAST_NAME, new PropertyModel<String>(personModel, "lastName")));
+            add(new FeedbackPanel("feedback"));
+            add(new TextField<>("firstName", new PropertyModel<String>(personModel, "firstName")).setRequired(true));
+            add(new TextField<>("lastName", new PropertyModel<String>(personModel, "lastName")));
         }
 
         @Override
