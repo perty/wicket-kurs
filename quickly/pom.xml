@@ -16,7 +16,7 @@
     <description>A demonstration on how quickly you set up an web application in Java</description>
 
     <properties>
-        <wicket.version>6.11.0</wicket.version>
+        <wicket.version>7.18.0</wicket.version>
         <jetty.version>7.6.3.v20120416</jetty.version>
         <junit.version>4.11</junit.version>
         <lombok.version>1.16.0</lombok.version>
